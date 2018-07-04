@@ -18,7 +18,11 @@ def get_page(url):
 def get_quote(raw_html):
     html = BeautifulSoup(raw_html, 'html.parser')
     quote = html.find('span', attrs={'class': 'quotable-quote'})
-    return quote.text.strip()
+
+    if quote is not None:
+        return quote.text.strip()
+    else:
+        return ''
 
 def get_author(raw_html):
     html = BeautifulSoup(raw_html, 'html.parser')
