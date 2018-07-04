@@ -33,6 +33,8 @@ def display_quote(quote, author):
 
 url = 'http://minimalmaxims.com/'
 html = get_page(url)
-quote = get_quote(html)
-author = get_author(html)
-display_quote(quote, author)
+
+if html is not None:
+    quote = get_quote(html)
+    author = get_author(html)
+    display_quote(quote, author)
