@@ -19,7 +19,13 @@ def get_quote(raw_html):
     quote = html.find('span', attrs={'class': 'quotable-quote'})
     return quote.text.strip()
 
+def get_author(raw_html):
+    html = BeautifulSoup(raw_html, 'html.parser')
+    author = html.find('cite', attrs={'class': 'quoteable-author'})
+    return author.text.strip()
+
 url = 'http://minimalmaxims.com/'
 html = get_page(url)
 quote = get_quote(html)
-print(quote)
+author = get_author(html)
+print(quote, "\n", author)
