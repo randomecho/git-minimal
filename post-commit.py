@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from bs4 import BeautifulSoup
+from textwrap import wrap
 import requests
 
 def get_page(url):
@@ -24,8 +25,14 @@ def get_author(raw_html):
     author = html.find('cite', attrs={'class': 'quoteable-author'})
     return author.text.strip()
 
+def display_quote(quote, author):
+    print()
+    print("\n".join(wrap(quote, 70)))
+    print(('{0:>70}').format(author))
+    print()
+
 url = 'http://minimalmaxims.com/'
 html = get_page(url)
 quote = get_quote(html)
 author = get_author(html)
-print(quote, "\n", author)
+display_quote(quote, author)
