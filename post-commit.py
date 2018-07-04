@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from bs4 import BeautifulSoup
 import requests
 
 def get_page(url):
@@ -13,6 +14,12 @@ def get_page(url):
     except requests.Timeout as e:
         return str(e)
 
+def get_quote(raw_html):
+    html = BeautifulSoup(raw_html, 'html.parser')
+    quote = html.find('span', attrs={'class': 'quotable-quote'})
+    return quote.text.strip()
+
 url = 'http://minimalmaxims.com/'
 html = get_page(url)
-print(html)
+quote = get_quote(html)
+print(quote)
