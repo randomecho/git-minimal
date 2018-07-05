@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from textwrap import wrap
 import requests
 
+
 def get_page(url):
     response = requests.get(url)
 
@@ -15,6 +16,7 @@ def get_page(url):
     except requests.Timeout as e:
         return str(e)
 
+
 def get_extract(raw_html, html_tag, css_class):
     html = BeautifulSoup(raw_html, 'html.parser')
     extract = html.find(html_tag, attrs={'class': css_class})
@@ -24,12 +26,14 @@ def get_extract(raw_html, html_tag, css_class):
     else:
         return None
 
+
 def display_quote(quote, author):
     if quote is not None and author is not None:
         print()
         print("\n".join(wrap(quote, 70)))
         print(('{0:>70}').format(author))
         print()
+
 
 url = 'http://minimalmaxims.com/'
 html = get_page(url)
