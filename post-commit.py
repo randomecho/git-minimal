@@ -15,21 +15,12 @@ def get_page(url):
     except requests.Timeout as e:
         return str(e)
 
-def get_quote(raw_html):
+def get_extract(raw_html, html_tag, css_class):
     html = BeautifulSoup(raw_html, 'html.parser')
-    quote = html.find('span', attrs={'class': 'quotable-quote'})
+    extract = html.find(html_tag, attrs={'class': css_class})
 
-    if quote is not None:
-        return quote.text.strip()
-    else:
-        return None
-
-def get_author(raw_html):
-    html = BeautifulSoup(raw_html, 'html.parser')
-    author = html.find('cite', attrs={'class': 'quoteable-author'})
-
-    if author is not None:
-        return author.text.strip()
+    if extract is not None:
+        return extract.text.strip()
     else:
         return None
 
@@ -44,6 +35,6 @@ url = 'http://minimalmaxims.com/'
 html = get_page(url)
 
 if html is not None:
-    quote = get_quote(html)
-    author = get_author(html)
+    quote = get_extract(html, 'span', 'quotable-quote')
+    author = get_extract(html, 'cite', 'quoteable-author')
     display_quote(quote, author)
