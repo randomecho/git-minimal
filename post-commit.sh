@@ -14,8 +14,10 @@ if [[ $html =~ $author_regex ]]; then
     author=${BASH_REMATCH[1]}
 fi
 
-echo
-echo $quote | fold -w 70 -s
-echo
-echo "     $author"
-echo
+if [[ ! -z $quote && ! -z $author ]]; then
+    echo
+    echo $quote | fold -w 70 -s
+    echo
+    echo "     $author"
+    echo
+fi
