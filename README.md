@@ -9,6 +9,13 @@ you will need to install some modules:
 
     pip install BeautifulSoup4 requests
 
+To use the Bash shell script version `wget` needs to be installed.
+If you don't know if `wget` exists on the machine check for it with:
+
+    which wget
+
+If the path to `wget` does not show, it's not installed.
+
 ## Install
 
 Move the script into the hooks directory of the desired repo
