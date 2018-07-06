@@ -1,5 +1,11 @@
 #!/bin/bash
 
+wget_exists=$(which wget > /dev/null; echo $?)
+
+if [[ $wget_exists == 1 ]]; then
+    exit
+fi
+
 html=$(wget -qO- http://minimalmaxims.com/)
 quote_regex='<span class="quotable-quote"><p>([a-zA-Z0-9 ;’,‘?:\.—\-]+)<\/p>'
 author_regex='<cite class="quoteable-author">([a-zA-Z0-9— ;\.\-]+)<\/cite>'
