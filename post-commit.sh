@@ -15,7 +15,7 @@ if [[ $html =~ $author_regex ]]; then
 fi
 
 echo
-echo $quote
+echo $quote | fold -w 70 -s
 echo
 echo "     $author"
 echo
