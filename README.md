@@ -2,19 +2,21 @@
 
 Display a minimal maxim by The Minimalists after each git commit.
 
-Created under a Python 3.4 environment.
-
 ## Setup
 
-You will need to install some Python modules:
+To use the Python version (created in a Python 3.4 environment)
+you will need to install some modules:
 
     pip install BeautifulSoup4 requests
 
 ## Install
 
-Move the script into the hooks directory of the desired repo:
+Move the script into the hooks directory of the desired repo
+and re-initialise:
 
     mv post-commit.py /path/to/repo/.git/hooks/post-commit
+    cd /path/to/repo/
+    git init
 
 Note: There is no file extension when planted into the hooks directory.
 It is just "post-commit".
@@ -30,6 +32,10 @@ Set a global store of all the Git hooks like so:
 To update existing repos, re-initialise:
 
     git init
+
+The example command line instructions reference the Python script.
+To use the Bash shell script instead, swap out
+**post-commit.py** for **post-commit.sh**.
 
 ## License
 
