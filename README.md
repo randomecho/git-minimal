@@ -18,10 +18,10 @@ If the path to `wget` does not show, it's not installed.
 
 ## Install
 
-Move the script into the hooks directory of the desired repo
+Copy the script into the hooks directory of the desired repo
 and re-initialise:
 
-    mv post-commit.py /path/to/repo/.git/hooks/post-commit
+    cp post-commit.py /path/to/repo/.git/hooks/post-commit
     cd /path/to/repo/
     git init
 
@@ -34,7 +34,7 @@ Set a global store of all the Git hooks like so:
 
     git config --global init.templatedir '/path/to/global/git_templates'
     mkdir -p /path/to/global/git_templates/hooks
-    mv post-commit.py /path/to/global/git_templates/hooks/post-commit
+    cp post-commit.py /path/to/global/git_templates/hooks/post-commit
 
 To update existing repos, re-initialise:
 
