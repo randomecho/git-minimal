@@ -44,6 +44,18 @@ The example command line instructions reference the Python script.
 To use the Bash shell script instead, swap out
 **post-commit.py** for **post-commit.sh**.
 
+## Example
+
+    $ git commit
+
+    If you want a fulfilling profession, pursue your curiosity.
+
+         —The Minimalists
+
+    [master 6c5a137] Discard all non-essentials
+     1 file changed, 465 deletions(-)
+    $
+
 ## License
 
 [BSD 3-Clause](http://opensource.org/licenses/BSD-3-Clause)
